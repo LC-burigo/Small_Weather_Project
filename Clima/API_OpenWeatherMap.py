@@ -3,6 +3,7 @@ from pprint import pprint
 
 
 def Weather_City():
+    dict_weather = {}
     latitude = input('Enter the latitude:')
     longitude = input('Enter the longitude:')
     dt = input('Enter the dt:')
@@ -17,7 +18,18 @@ def Weather_City():
 
     response = requests.request("GET", url, headers=headers, params=querystring)
 
-    pprint(response.text)
+    data = response.json()
+
+    current_temperature = data['current']['temp']
+    current_humidity = data['current']['humidity']
+    current_uvi = data['current']['uvi']
+    current_weather = data['current']['wind_speed']
+    dict_weather['current_temperature'] = current_temperature
+    dict_weather['current_humidity'] = current_humidity
+    dict_weather['current_uvi'] = current_uvi
+    dict_weather['current_weather'] = current_weather
+    print(dict_weather)
+
 
 
 Weather_City()

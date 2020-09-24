@@ -10,6 +10,8 @@ print('Cidade:', data['name'])
 print('Vento:', data['wind']['speed'])
 print('Temperatura:', data['main']['temp'])
 print('Umidade:', data['main']['humidity'])
+print(data)
+
 
 
 

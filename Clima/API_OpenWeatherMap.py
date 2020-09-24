@@ -2,6 +2,7 @@ import requests
 from pprint import pprint
 
 
+
 def Weather_City():
     dict_weather = {}
     latitude = input('Enter the latitude:')
@@ -19,14 +20,21 @@ def Weather_City():
     response = requests.request("GET", url, headers=headers, params=querystring)
 
     data = response.json()
+    return data
 
-    hourly = data['hourly']
+
+def Hourly_Temperature():
+    call = Weather_City()
+    hourlies = call['hourly']
     i = 0
     hour_temperature = 0
-    while i < len(hourly):
-        hour_temperature = hour_temperature + hourly[i]['temp']
+    while i < len(hourlies):
+        hour_temperature = hour_temperature + hourlies[i]['temp']
         i = i + 1
-    print(hour_temperature/24)
+    print('The count of temperature measurements was {}'.format(i))
+    print('the average temperature in the last {} hours is: {}'.format(i, hour_temperature/24))
+
+
 # current_temperature = data['current']['temp']
 # current_humidity = data['current']['humidity']
 # current_uvi = data['current']['uvi']
@@ -38,4 +46,5 @@ def Weather_City():
 # print(dict_weather)
 
 
-Weather_City()
+Hourly_Temperature()
+

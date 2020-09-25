@@ -72,7 +72,7 @@ class City_weather:
         print('The count of pressure measurements was {}'.format(i))
         print('the average pressure in the last {} hours is: {}'.format(i, Hour_Pressure / 24))
 
-    def Max(self):
+    def Max(self, feature):
         call = City_weather.Weather_City(self)
         Hourly = call['hourly']
         Dict_Temperature = {}
@@ -98,12 +98,22 @@ class City_weather:
         Max_WindSpeed_dt = max(Dict_WindSpeed, key=Dict_WindSpeed.get)
         Max_Pressure_dt = max(Dict_Pressure, key=Dict_Pressure.get)
 
-        print('The maximum temperature was measured at {} with the value of {}'.format(Max_Temperature_dt, Max_Temperature))
-        print('The maximum Humidity was measured at {} with the value of {}'.format(Max_Humidity_dt, Max_Humidity))
-        print('The maximum WindSpeed was measured at {} with the value of {}'.format(Max_WindSpeed_dt, Max_WindSpeed))
-        print('The maximum Pressure was measured at {} with the value of {}'.format(Max_Pressure_dt, Max_Pressure))
+        if feature.lower() == 'temperature':
+            print('The maximum Temperature was measured at {} with the value of {}'.format(Max_Temperature_dt, Max_Temperature))
+        elif feature.lower() == 'humidity':
+            print('The maximum Humidity was measured at {} with the value of {}'.format(Max_Humidity_dt, Max_Humidity))
+        elif feature.lower() == 'windspeed':
+            print(
+                'The maximum WindSpeed was measured at {} with the value of {}'.format(Max_WindSpeed_dt, Max_WindSpeed))
+        elif feature.lower() == 'pressure':
+            print('The maximum Pressure was measured at {} with the value of {}'.format(Max_Pressure_dt, Max_Pressure))
+        elif feature.lower() == 'all':
+            print('The maximum Temperature was measured at {} with the value of {}'.format(Max_Temperature_dt, Max_Temperature))
+            print('The maximum Humidity was measured at {} with the value of {}'.format(Max_Humidity_dt, Max_Humidity))
+            print('The maximum WindSpeed was measured at {} with the value of {}'.format(Max_WindSpeed_dt, Max_WindSpeed))
+            print('The maximum Pressure was measured at {} with the value of {}'.format(Max_Pressure_dt, Max_Pressure))
 
-    def Min(self):
+    def Min(self, feature):
         call = City_weather.Weather_City(self)
         Hourly = call['hourly']
         Dict_Temperature = {}
@@ -129,12 +139,21 @@ class City_weather:
         Min_WindSpeed_dt = min(Dict_WindSpeed, key=Dict_WindSpeed.get)
         Min_Pressure_dt = min(Dict_Pressure, key=Dict_Pressure.get)
 
-        print('The minimum temperature was measured at {} with the value of {}'.format(Min_Temperature_dt, Min_Temperature))
-        print('The minimum Humidity was measured at {} with the value of {}'.format(Min_Humidity_dt, Min_Humidity))
-        print('The minimum WindSpeed was measured at {} with the value of {}'.format(Min_WindSpeed_dt, Min_WindSpeed))
-        print('The minimum Pressure was measured at {} with the value of {}'.format(Min_Pressure_dt, Min_WindSpeed))
+        if feature.lower() == 'temperature':
+            print('The minimum temperature was measured at {} with the value of {}'.format(Min_Temperature_dt, Min_Temperature))
+        elif feature.lower() == 'humidity':
+            print('The minimum Humidity was measured at {} with the value of {}'.format(Min_Humidity_dt, Min_Humidity))
+        elif feature.lower() == 'windspeed':
+            print('The minimum WindSpeed was measured at {} with the value of {}'.format(Min_WindSpeed_dt, Min_WindSpeed))
+        elif feature.lower() == 'pressure':
+            print('The minimum Pressure was measured at {} with the value of {}'.format(Min_Pressure_dt, Min_WindSpeed))
+        elif feature.lower() == 'all':
+            print('The minimum temperature was measured at {} with the value of {}'.format(Min_Temperature_dt, Min_Temperature))
+            print('The minimum Humidity was measured at {} with the value of {}'.format(Min_Humidity_dt, Min_Humidity))
+            print('The minimum WindSpeed was measured at {} with the value of {}'.format(Min_WindSpeed_dt, Min_WindSpeed))
+            print('The minimum Pressure was measured at {} with the value of {}'.format(Min_Pressure_dt, Min_WindSpeed))
 
 
 Florianopolis = City_weather(-27, -48, 1600898984)
-Florianopolis.Max()
-Florianopolis.Min()
+Florianopolis.Max('temperature')
+

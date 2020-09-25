@@ -27,48 +27,51 @@ class City_weather:
     def Hourly_Temperature(self):
         call = City_weather.Weather_City(self)
         Hourly = call['hourly']
+        Weather_Features = []
+        Dict_Temperature = {}
+        Dict_Humidity = {}
+        Dict_WindSpeed = {}
+        Dict_Pressure = {}
         i = 0
         n = 0
-        list_Temperature = {}
-        list_Humidity = {}
-        list_WindSpeed = {}
-        list_Pressure = {}
         while i < len(Hourly):
-            list_Temperature['{}ª temperatura medida {}'.format(n, Hourly[i]['dt'])] = Hourly[i]['temp']
-            list_Humidity['{}ª umidade medida {}'.format(n, Hourly[i]['dt'])] = Hourly[i]['humidity']
-            list_WindSpeed['{}ª umidade medida {}'.format(n, Hourly[i]['dt'])] = Hourly[i]['wind_speed']
-            list_Pressure['{}ª umidade medida {}'.format(n, Hourly[i]['dt'])] = Hourly[i]['pressure']
+            Dict_Temperature['{}ª temperatura medida {}'.format(n, Hourly[i]['dt'])] = Hourly[i]['temp']
+            Dict_Humidity['{}ª umidade medida {}'.format(n, Hourly[i]['dt'])] = Hourly[i]['humidity']
+            Dict_WindSpeed['{}ª umidade medida {}'.format(n, Hourly[i]['dt'])] = Hourly[i]['wind_speed']
+            Dict_Pressure['{}ª umidade medida {}'.format(n, Hourly[i]['dt'])] = Hourly[i]['pressure']
             i = i + 1
             n = n + 1
-        print(list_Temperature)
-        print(list_Humidity)
-        print(list_WindSpeed)
-        print(list_Pressure)
+        Weather_Features.append(Dict_Temperature, Dict_Humidity, Dict_WindSpeed, Dict_Pressure)
+        print(Weather_Features)
+        return Dict_Temperature, Dict_Humidity, Dict_WindSpeed, Dict_Pressure
 
+    def Average(self):
+        call = City_weather.Weather_City(self)
+        Hourly = call['hourly']
+        Hour_Temperature = 0
+        Hour_Humidity = 0
+        Hour_WindSpeed = 0
+        Hour_Pressure = 0
+        i = 0
+        while i < len(Hourly):
+            Hour_Temperature = Hour_Temperature + Hourly[i]['temp']
+            Hour_Humidity = Hour_Humidity + Hourly[i]['humidity']
+            Hour_WindSpeed = Hour_WindSpeed + Hourly[i]['wind_speed']
+            Hour_Pressure = Hour_Pressure + Hourly[i]['pressure']
+            i = i + 1
+
+        print('The count of temperature measurements was {}'.format(i))
+        print('the average temperature in the last {} hours is: {}'.format(i, Hour_Temperature / 24))
+        print('##########################################')
+        print('The count of humidity measurements was {}'.format(i))
+        print('the average humidity in the last {} hours is: {}'.format(i, Hour_Humidity / 24))
+        print('##########################################')
+        print('The count of windspeed measurements was {}'.format(i))
+        print('the average windspeed in the last {} hours is: {}'.format(i, Hour_WindSpeed / 24))
+        print('##########################################')
+        print('The count of pressure measurements was {}'.format(i))
+        print('the average pressure in the last {} hours is: {}'.format(i, Hour_Pressure / 24))
 
 
 Florianopolis = City_weather(-27, -48, 1600898984)
-Florianopolis.Hourly_Temperature()
-# hour_temperature = 0
-# hour_humidity = 0
-# hour_windspeed = 0
-# hour_pressure = 0
-# while i < len(Hourly):
-#     hour_temperature = hour_temperature + Hourly[i]['temp']
-#     hour_humidity = hour_humidity + Hourly[i]['humidity']
-#     hour_pressure = hour_pressure + Hourly[i]['pressure']
-#     hour_windspeed = hour_windspeed + Hourly[i]['wind_speed']
-#
-#     i = i + 1
-# print('The count of temperature measurements was {}'.format(i))
-# print('the average temperature in the last {} hours is: {}'.format(i, hour_temperature/24))
-# print('##########################################')
-# print('The count of humidity measurements was {}'.format(i))
-# print('the average humidity in the last {} hours is: {}'.format(i, hour_humidity / 24))
-# print('##########################################')
-# print('The count of pressure measurements was {}'.format(i))
-# print('the average pressure in the last {} hours is: {}'.format(i, hour_pressure / 24))
-# print('##########################################')
-# print('The count of windspeed measurements was {}'.format(i))
-# print('the average windspeed in the last {} hours is: {}'.format(i, hour_windspeed / 24))
-# print('##########################################')
+Florianopolis.Average()

@@ -100,6 +100,24 @@ class City_weather:
             print('The feature have to be one of these: temperature, humidity, windspeed, pressure ')
 
     def Max(self, feature):
-        Call = City_weather.Weather_City(self)
-        Hourly = Call['hourly']
-        if feature.lower() == 'temperatura':
+        if feature.lower() == 'temperature':
+            Call = self.Hourly_features('temperature')
+            print('The maximum Temperature was measured at {} with the value of {}'.format(Call[max(Call, key=Call.get)], max(Call, key=Call.get)))
+        elif feature.lower() == 'humidity':
+            Call = self.Hourly_features('humidity')
+            print('The maximum humidity was measured at {} with the value of {}'.format(Call[max(Call, key=Call.get)], max(Call, key=Call.get)))
+        elif feature.lower() == 'windspeed':
+            Call = self.Hourly_features('windspeed')
+            print('The maximum windspeed was measured at {} with the value of {}'.format(Call[max(Call, key=Call.get)], max(Call, key=Call.get)))
+        elif feature.lower() == 'pressure':
+            Call = self.Hourly_features('pressure')
+            print('The maximum pressure was measured at {} with the value of {}'.format(Call[max(Call, key=Call.get)], max(Call, key=Call.get)))
+        else:
+            print('The feature have to be one of these: temperature, humidity, windspeed, pressure ')
+
+    def Min(self, feature):
+
+
+
+florianópolis = City_weather(-27, -48, 1600898984)
+florianópolis.Max('temperatura')

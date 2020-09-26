@@ -1,5 +1,6 @@
 import requests
 from pprint import pprint
+from matplotlib import pyplot
 
 
 class City_weather:
@@ -135,6 +136,23 @@ class City_weather:
                                                                                         min(Call, key=Call.get)))
         else:
             print('The feature have to be one of these: temperature, humidity, windspeed, pressure ')
+
+    def Graphics(self, feature):
+        pyplot.style.use('ggplot')
+        Call = self.Weather_City()
+        Hourly = Call['hourly']
+        List_Temperature = []
+        List_Humidity = []
+        List_WindSpeed = []
+        List_Pressure = []
+        List_Datetime = []
+        i = 0
+        if feature.lower() == 'temperature':
+            while i < len(Hourly):
+                List_Temperature.append(Hourly[i]['temp'])
+                i += 1
+
+
 
 
 florianópolis = City_weather(-27, -48, 1600898984)

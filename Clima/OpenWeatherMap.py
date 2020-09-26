@@ -114,16 +114,16 @@ class City_weather:
     def Max(self, feature):
         if feature.lower() == 'temperature':
             Call = self.Hourly_features('temperature')
-            print('The maximum Temperature was measured at {} with the value of {}'.format(Call[max(Call, key=Call.get)], max(Call, key=Call.get)))
+            print('The maximum Temperature was measured at {} with the value of {}'.format(datetime.datetime.fromtimestamp((max(Call, key=Call.get)).strftime('%c')), Call[max(Call, key=Call.get)]))
         elif feature.lower() == 'humidity':
             Call = self.Hourly_features('humidity')
-            print('The maximum humidity was measured at {} with the value of {}'.format(Call[max(Call, key=Call.get)], max(Call, key=Call.get)))
+            print('The maximum humidity was measured at {} with the value of {}'.format(datetime.datetime.fromtimestamp((max(Call, key=Call.get)).strftime('%c')), Call[max(Call, key=Call.get)]))
         elif feature.lower() == 'windspeed':
             Call = self.Hourly_features('windspeed')
-            print('The maximum windspeed was measured at {} with the value of {}'.format(Call[max(Call, key=Call.get)], max(Call, key=Call.get)))
+            print('The maximum windspeed was measured at {} with the value of {}'.format(datetime.datetime.fromtimestamp((max(Call, key=Call.get)).strftime('%c')), Call[max(Call, key=Call.get)]))
         elif feature.lower() == 'pressure':
             Call = self.Hourly_features('pressure')
-            print('The maximum pressure was measured at {} with the value of {}'.format(Call[max(Call, key=Call.get)], max(Call, key=Call.get)))
+            print('The maximum pressure was measured at {} with the value of {}'.format(datetime.datetime.fromtimestamp((max(Call, key=Call.get)).strftime('%c')), Call[max(Call, key=Call.get)]))
         else:
             print('The feature have to be one of these: temperature, humidity, windspeed, pressure ')
 
@@ -131,20 +131,20 @@ class City_weather:
         if feature.lower() == 'temperature':
             Call = self.Hourly_features('temperature')
             print(
-                'The minimum Temperature was measured at {} with the value of {}'.format(Call[min(Call, key=Call.get)],
-                                                                                         min(Call, key=Call.get)))
+                'The minimum Temperature was measured at {} with the value of {}'.format(min(Call, key=Call.get),
+                                                                                         Call[min(Call, key=Call.get)]))
         elif feature.lower() == 'humidity':
             Call = self.Hourly_features('humidity')
-            print('The minimum humidity was measured at {} with the value of {}'.format(Call[min(Call, key=Call.get)],
-                                                                                        min(Call, key=Call.get)))
+            print('The minimum humidity was measured at {} with the value of {}'.format(min(Call, key=Call.get),
+                                                                                         Call[min(Call, key=Call.get)]))
         elif feature.lower() == 'windspeed':
             Call = self.Hourly_features('windspeed')
-            print('The minimum windspeed was measured at {} with the value of {}'.format(Call[min(Call, key=Call.get)],
-                                                                                         min(Call, key=Call.get)))
+            print('The minimum windspeed was measured at {} with the value of {}'.format(min(Call, key=Call.get),
+                                                                                         Call[min(Call, key=Call.get)]))
         elif feature.lower() == 'pressure':
             Call = self.Hourly_features('pressure')
-            print('The minimum pressure was measured at {} with the value of {}'.format(Call[min(Call, key=Call.get)],
-                                                                                        min(Call, key=Call.get)))
+            print('The minimum pressure was measured at {} with the value of {}'.format(min(Call, key=Call.get),
+                                                                                         Call[min(Call, key=Call.get)]))
         else:
             print('The feature have to be one of these: temperature, humidity, windspeed, pressure ')
 
@@ -212,4 +212,4 @@ class City_weather:
 
 
 florianópolis = City_weather(-27, -48, 1600898984)
-
+florianópolis.Max('temperature')

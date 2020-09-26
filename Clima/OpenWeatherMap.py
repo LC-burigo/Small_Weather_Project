@@ -1,6 +1,7 @@
 import requests
 from pprint import pprint
 from matplotlib import pyplot
+import datetime
 
 
 class City_weather:
@@ -24,6 +25,16 @@ class City_weather:
 
         data = response.json()
         return data
+
+    def Epoch_to_Datetime(self):
+        Call = self.Weather_City()
+        Hourly = Call['hourly']
+        DateTime = []
+        i = 0
+        for e in Hourly:
+            DateTime.append(datetime.datetime.fromtimestamp(Hourly[i]['dt']).strftime('%c'))
+            i += 1
+        print(DateTime)
 
     def Hourly_features(self, feature):
         Call = self.Weather_City()
@@ -197,7 +208,5 @@ class City_weather:
             print('The feature have to be one of these: temperature, humidity, windspeed, pressure ')
 
 
-
-
 florianópolis = City_weather(-27, -48, 1600898984)
-florianópolis.Graphics()
+florianópolis.Epoch_to_Datetime()

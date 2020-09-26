@@ -34,7 +34,7 @@ class City_weather:
         for e in Hourly:
             DateTime.append(datetime.datetime.fromtimestamp(Hourly[i]['dt']).strftime('%c'))
             i += 1
-        print(DateTime)
+        return DateTime
 
     def Hourly_features(self, feature):
         Call = self.Weather_City()
@@ -50,28 +50,24 @@ class City_weather:
                 Dict_Temperature['{}ª measured temperature {}'.format(n, Hourly[i]['dt'])] = Hourly[i]['temp']
                 i += 1
                 n += 1
-            print(Dict_Temperature)
             return Dict_Temperature
         elif feature.lower() == 'humidity':
             while i < len(Hourly):
                 Dict_Humidity['{}ª measured humidity {}'.format(n, Hourly[i]['dt'])] = Hourly[i]['humidity']
                 i += 1
                 n += 1
-            print(Dict_Humidity)
             return Dict_Humidity
         elif feature.lower() == 'windspeed':
             while i < len(Hourly):
                 Dict_WindSpeed['{}ª measured windwpeed {}'.format(n, Hourly[i]['dt'])] = Hourly[i]['wind_speed']
                 i += 1
                 n += 1
-            print(Dict_WindSpeed)
             return Dict_WindSpeed
         elif feature.lower() == 'Pressure':
             while i < len(Hourly):
                 Dict_Pressure['{}ª measured pressure {}'.format(n, Hourly[i]['dt'])] = Hourly[i]['pressure']
                 i += 1
                 n += 1
-            print(Dict_Pressure)
             return Dict_Pressure
         else:
             print('The feature have to be one of these: temperature, humidity, windspeed, pressure ')
@@ -90,24 +86,28 @@ class City_weather:
                 i += 1
             print('The count of temperature measurements was {}'.format(i))
             print('the average temperature in the last {} hours is: {}'.format(i, Hour_Temperature / 24))
+            return Hour_Temperature
         elif feature.lower() == 'humidity':
             while i < len(Hourly):
                 Hour_Humidity = Hour_Humidity + Hourly[i]['humidity']
                 i += 1
             print('The count of humidity measurements was {}'.format(i))
             print('the average humidity in the last {} hours is: {}'.format(i, Hour_Humidity / 24))
+            return Hour_Humidity
         elif feature.lower() == 'windspeed':
             while i < len(Hourly):
                 Hour_WindSpeed = Hour_WindSpeed + Hourly[i]['wind_speed']
                 i += 1
             print('The count of windspeed measurements was {}'.format(i))
             print('the average windspeed in the last {} hours is: {}'.format(i, Hour_WindSpeed / 24))
+            return Hour_WindSpeed
         elif feature.lower() == 'pressure':
             while i < len(Hourly):
                 Hour_Pressure = Hour_Pressure + Hourly[i]['pressure']
                 i += 1
             print('The count of pressure measurements was {}'.format(i))
             print('the average pressure in the last {} hours is: {}'.format(i, Hour_Pressure / 24))
+            return Hour_Pressure
         else:
             print('The feature have to be one of these: temperature, humidity, windspeed, pressure ')
 
@@ -150,15 +150,14 @@ class City_weather:
 
     def Graphics(self, feature):
         pyplot.style.use('ggplot')
+        Axis = pyplot.gca()
         Call = self.Weather_City()
         Hourly = Call['hourly']
         List_Temperature = []
         List_Humidity = []
         List_WindSpeed = []
         List_Pressure = []
-        List_Datetime = []
-        for n in range(24):
-            List_Datetime.append(Hourly[n]['dt'])
+        List_Datetime = self.Epoch_to_Datetime()
         i = 0
         if feature.lower() == 'temperature':
             while i < len(Hourly):
@@ -167,6 +166,7 @@ class City_weather:
             pyplot.plot(List_Datetime, List_Temperature, color='r', marker='o', linewidth=3, label='Temperature history in one day')
             pyplot.xlabel('Datetime')
             pyplot.ylabel('Temperatura in Kelvin')
+            Axis.set_ylim([280, 300])
             pyplot.title('Graphic of the temperature')
             pyplot.grid(True)
             pyplot.legend()
@@ -178,17 +178,19 @@ class City_weather:
             pyplot.plot(List_Datetime, List_Humidity, color='b', marker='o', linewidth=3, label='Humidity history in one day')
             pyplot.xlabel('Datetime')
             pyplot.ylabel('Humidity in porcent')
+            Axis.set_ylim([0, 200])
             pyplot.title('Graphic of the humidity')
             pyplot.grid(True)
             pyplot.legend()
             pyplot.show()
         elif feature.lower() == 'windspeed':
             while i < len(Hourly):
-                List_WindSpeed.append(Hourly[i]['windspeed'])
+                List_WindSpeed.append(Hourly[i]['wind_speed'])
                 i += 1
             pyplot.plot(List_Datetime, List_WindSpeed, color='y', marker='o', linewidth=3, label='Windspeed history in one day')
             pyplot.xlabel('Datetime')
             pyplot.ylabel('Windspeed in Km/h')
+            Axis.set_ylim([0, 10])
             pyplot.title('Graphic of the Windspeed')
             pyplot.grid(True)
             pyplot.legend()
@@ -200,6 +202,7 @@ class City_weather:
             pyplot.plot(List_Datetime, List_Pressure, color='k', marker='o', linewidth=3, label='Pressure history in one day')
             pyplot.xlabel('Datetime')
             pyplot.ylabel('Pressure in Km/h')
+            Axis.set_ylim([1000, 1040])
             pyplot.title('Graphic of the Pressure')
             pyplot.grid(True)
             pyplot.legend()
@@ -209,4 +212,4 @@ class City_weather:
 
 
 florianópolis = City_weather(-27, -48, 1600898984)
-florianópolis.Epoch_to_Datetime()
+

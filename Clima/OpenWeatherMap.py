@@ -146,15 +146,58 @@ class City_weather:
         List_WindSpeed = []
         List_Pressure = []
         List_Datetime = []
+        for n in range(24):
+            List_Datetime.append(Hourly[n]['dt'])
         i = 0
         if feature.lower() == 'temperature':
             while i < len(Hourly):
                 List_Temperature.append(Hourly[i]['temp'])
                 i += 1
+            pyplot.plot(List_Datetime, List_Temperature, color='r', marker='o', linewidth=3, label='Temperature history in one day')
+            pyplot.xlabel('Datetime')
+            pyplot.ylabel('Temperatura in Kelvin')
+            pyplot.title('Graphic of the temperature')
+            pyplot.grid(True)
+            pyplot.legend()
+            pyplot.show()
+        elif feature.lower() == 'humidity':
+            while i < len(Hourly):
+                List_Humidity.append(Hourly[i]['humidity'])
+                i += 1
+            pyplot.plot(List_Datetime, List_Humidity, color='b', marker='o', linewidth=3, label='Humidity history in one day')
+            pyplot.xlabel('Datetime')
+            pyplot.ylabel('Humidity in porcent')
+            pyplot.title('Graphic of the humidity')
+            pyplot.grid(True)
+            pyplot.legend()
+            pyplot.show()
+        elif feature.lower() == 'windspeed':
+            while i < len(Hourly):
+                List_WindSpeed.append(Hourly[i]['windspeed'])
+                i += 1
+            pyplot.plot(List_Datetime, List_WindSpeed, color='y', marker='o', linewidth=3, label='Windspeed history in one day')
+            pyplot.xlabel('Datetime')
+            pyplot.ylabel('Windspeed in Km/h')
+            pyplot.title('Graphic of the Windspeed')
+            pyplot.grid(True)
+            pyplot.legend()
+            pyplot.show()
+        elif feature.lower() == 'pressure':
+            while i < len(Hourly):
+                List_Pressure.append(Hourly[i]['pressure'])
+                i += 1
+            pyplot.plot(List_Datetime, List_Pressure, color='k', marker='o', linewidth=3, label='Pressure history in one day')
+            pyplot.xlabel('Datetime')
+            pyplot.ylabel('Pressure in Km/h')
+            pyplot.title('Graphic of the Pressure')
+            pyplot.grid(True)
+            pyplot.legend()
+            pyplot.show()
+        else:
+            print('The feature have to be one of these: temperature, humidity, windspeed, pressure ')
 
 
 
 
 florianópolis = City_weather(-27, -48, 1600898984)
-florianópolis.Max('temperature')
-florianópolis.Min('temperature')
+florianópolis.Graphics()

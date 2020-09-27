@@ -27,7 +27,15 @@ class City_weather:
         return data
 
     def Epoch_to_Datetime(self, epoch):
-           return datetime.datetime.fromtimestamp(epoch).strftime('%Y-%m-%d %H:%M:%S')
+        if epoch == 'list':
+            Call = self.Weather_City()
+            Hourly = Call['hourly']
+            List_Datetime = []
+            for i in range(len(Hourly)):
+                List_Datetime.append(datetime.datetime.fromtimestamp(Hourly[i]['dt']).strftime('%H:%M:%S'))
+            return List_Datetime
+        else:
+            return datetime.datetime.fromtimestamp(epoch).strftime('%Y-%m-%d %H:%M:%S')
 
     def Hourly_features(self, feature):
         Call = self.Weather_City()
@@ -150,15 +158,16 @@ class City_weather:
         List_Humidity = []
         List_WindSpeed = []
         List_Pressure = []
-        List_Datetime = self.Epoch_to_Datetime()
+        List_Datetime = self.Epoch_to_Datetime('list')
         i = 0
         if feature.lower() == 'temperature':
             while i < len(Hourly):
                 List_Temperature.append(Hourly[i]['temp'])
                 i += 1
-            pyplot.plot(List_Datetime, List_Temperature, color='r', marker='o', linewidth=3, label='Temperature history in one day')
+            pyplot.plot(List_Datetime, List_Temperature, color='r', marker='o', linewidth=3, label='Time-line temperature in one day')
+            pyplot.xticks(rotation=70)
             pyplot.xlabel('Datetime')
-            pyplot.ylabel('Temperatura in Kelvin')
+            pyplot.ylabel('Temperature in Kelvin')
             Axis.set_ylim([280, 300])
             pyplot.title('Graphic of the temperature')
             pyplot.grid(True)
@@ -169,6 +178,7 @@ class City_weather:
                 List_Humidity.append(Hourly[i]['humidity'])
                 i += 1
             pyplot.plot(List_Datetime, List_Humidity, color='b', marker='o', linewidth=3, label='Humidity history in one day')
+            pyplot.xticks(rotation=70)
             pyplot.xlabel('Datetime')
             pyplot.ylabel('Humidity in porcent')
             Axis.set_ylim([0, 200])
@@ -181,6 +191,7 @@ class City_weather:
                 List_WindSpeed.append(Hourly[i]['wind_speed'])
                 i += 1
             pyplot.plot(List_Datetime, List_WindSpeed, color='y', marker='o', linewidth=3, label='Windspeed history in one day')
+            pyplot.xticks(rotation=70)
             pyplot.xlabel('Datetime')
             pyplot.ylabel('Windspeed in Km/h')
             Axis.set_ylim([0, 10])
@@ -193,8 +204,9 @@ class City_weather:
                 List_Pressure.append(Hourly[i]['pressure'])
                 i += 1
             pyplot.plot(List_Datetime, List_Pressure, color='k', marker='o', linewidth=3, label='Pressure history in one day')
+            pyplot.xticks(rotation=70)
             pyplot.xlabel('Datetime')
-            pyplot.ylabel('Pressure in Km/h')
+            pyplot.ylabel('Pressure in hPa')
             Axis.set_ylim([1000, 1040])
             pyplot.title('Graphic of the Pressure')
             pyplot.grid(True)
@@ -205,3 +217,4 @@ class City_weather:
 
 
 florianópolis = City_weather(-27, -48, 1600898984)
+florianópolis.Graphics('temperature')

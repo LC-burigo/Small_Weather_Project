@@ -26,15 +26,8 @@ class City_weather:
         data = response.json()
         return data
 
-    def Epoch_to_Datetime(self):
-        Call = self.Weather_City()
-        Hourly = Call['hourly']
-        DateTime = []
-        i = 0
-        for e in Hourly:
-            DateTime.append(datetime.datetime.fromtimestamp(Hourly[i]['dt']).strftime('%c'))
-            i += 1
-        return DateTime
+    def Epoch_to_Datetime(self, epoch):
+           return datetime.datetime.fromtimestamp(epoch).strftime('%Y-%m-%d %H:%M:%S')
 
     def Hourly_features(self, feature):
         Call = self.Weather_City()
@@ -47,25 +40,25 @@ class City_weather:
         n = 0
         if feature.lower() == 'temperature':
             while i < len(Hourly):
-                Dict_Temperature['{}ª measured temperature {}'.format(n, Hourly[i]['dt'])] = Hourly[i]['temp']
+                Dict_Temperature[self.Epoch_to_Datetime(Hourly[i]['dt'])] = Hourly[i]['temp']
                 i += 1
                 n += 1
             return Dict_Temperature
         elif feature.lower() == 'humidity':
             while i < len(Hourly):
-                Dict_Humidity['{}ª measured humidity {}'.format(n, Hourly[i]['dt'])] = Hourly[i]['humidity']
+                Dict_Humidity[self.Epoch_to_Datetime(Hourly[i]['dt'])] = Hourly[i]['humidity']
                 i += 1
                 n += 1
             return Dict_Humidity
         elif feature.lower() == 'windspeed':
             while i < len(Hourly):
-                Dict_WindSpeed['{}ª measured windwpeed {}'.format(n, Hourly[i]['dt'])] = Hourly[i]['wind_speed']
+                Dict_WindSpeed[self.Epoch_to_Datetime(Hourly[i]['dt'])] = Hourly[i]['wind_speed']
                 i += 1
                 n += 1
             return Dict_WindSpeed
         elif feature.lower() == 'Pressure':
             while i < len(Hourly):
-                Dict_Pressure['{}ª measured pressure {}'.format(n, Hourly[i]['dt'])] = Hourly[i]['pressure']
+                Dict_Pressure[self.Epoch_to_Datetime(Hourly[i]['dt'])] = Hourly[i]['pressure']
                 i += 1
                 n += 1
             return Dict_Pressure
@@ -114,16 +107,16 @@ class City_weather:
     def Max(self, feature):
         if feature.lower() == 'temperature':
             Call = self.Hourly_features('temperature')
-            print('The maximum Temperature was measured at {} with the value of {}'.format(datetime.datetime.fromtimestamp((max(Call, key=Call.get)).strftime('%c')), Call[max(Call, key=Call.get)]))
+            print('The maximum Temperature was measured at {} with the value of {}'.format(max(Call, key=Call.get), Call[max(Call, key=Call.get)]))
         elif feature.lower() == 'humidity':
             Call = self.Hourly_features('humidity')
-            print('The maximum humidity was measured at {} with the value of {}'.format(datetime.datetime.fromtimestamp((max(Call, key=Call.get)).strftime('%c')), Call[max(Call, key=Call.get)]))
+            print('The maximum humidity was measured at {} with the value of {}'.format(max(Call, key=Call.get), Call[max(Call, key=Call.get)]))
         elif feature.lower() == 'windspeed':
             Call = self.Hourly_features('windspeed')
-            print('The maximum windspeed was measured at {} with the value of {}'.format(datetime.datetime.fromtimestamp((max(Call, key=Call.get)).strftime('%c')), Call[max(Call, key=Call.get)]))
+            print('The maximum windspeed was measured at {} with the value of {}'.format(max(Call, key=Call.get), Call[max(Call, key=Call.get)]))
         elif feature.lower() == 'pressure':
             Call = self.Hourly_features('pressure')
-            print('The maximum pressure was measured at {} with the value of {}'.format(datetime.datetime.fromtimestamp((max(Call, key=Call.get)).strftime('%c')), Call[max(Call, key=Call.get)]))
+            print('The maximum pressure was measured at {} with the value of {}'.format(max(Call, key=Call.get), Call[max(Call, key=Call.get)]))
         else:
             print('The feature have to be one of these: temperature, humidity, windspeed, pressure ')
 
@@ -212,4 +205,3 @@ class City_weather:
 
 
 florianópolis = City_weather(-27, -48, 1600898984)
-florianópolis.Max('temperature')

@@ -5,7 +5,7 @@
 
 Below are the procedures, which are arranged in 2 stages.
 
-***1\. Stage) register an account on the RapidAPI website***
+***1. Stage) register an account on the RapidAPI website***
 
    1. You need to register an account on the RapidAPI website to get an API key
 
@@ -27,7 +27,7 @@ Below are the procedures, which are arranged in 2 stages.
 For more information visit the [How to use an API with Python (Beginner’s Guide)](https://rapidapi.com/blog/how-to-use-an-api-with-python/) on RapidAPI website!
 
 
-***2\. Stage) Build The program***
+***2. Stage) Build The program*** \
 Below, you can see all the functionalities in my program and its corresponding functions, with all the packagesthe you need to install 
 
    * Function to grap informations that the API gives (Weather_City) \
@@ -41,4 +41,8 @@ Below, you can see all the functionalities in my program and its corresponding f
    * Function to get graphic of a chosen weather feature (Graphics)
 ```pip install matplotlib```
 
-***3\. Stage) Use the program***
+***3. Stage) Inputs to use the program*** \
+   * Choose a city
+   * Get the latidude of the chosen city
+   * Get the longitude of the chosen city
+   * Get the Dt (timestamp) of the chosen city

@@ -5,4 +5,8 @@
 
 Below are the procedures, which are arranged in 2 stages.
 
-***1\. Stage***
+***1\. Stage) register an account on the RapidAPI website***
+
+You need to register to get an API key
+![](:\Users\burig\OneDrive\Documentos\Referências do pré-tcc\Figuras)
+

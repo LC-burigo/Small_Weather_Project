@@ -3,7 +3,7 @@
 
 #### Here you will find, a guide with all the procedures to make this little climate program. 
 
-Below are the procedures, which are arranged in 2 stages.
+Below are the procedures, which are arranged in 3 stages.
 
 ***1. Stage) register an account on the RapidAPI website***
 

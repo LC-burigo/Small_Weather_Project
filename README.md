@@ -9,20 +9,19 @@ Below are the procedures, which are arranged in 2 stages.
 
    1. You need to register an account on the RapidAPI website to get an API key
 
-  <img src="RapidAPI.png">
+   <img src="RapidAPI.png">
 
    2. Go to API Marketplace on navbar and digit **Open Weather Map** on search text area
 
-  <img src="RapidAPI_2.png">
-
+   <img src="RapidAPI_2.png" width=100>
 
    3. Now that you have the Key API, choose the Historical Weather Data option
     
-   <img src="RapidAPI_3.png">
+   <img src="RapidAPI_3.png" width=100>
    
    4. Grab the code and copy to your editor 
     
-   <img src="RapidAPI_4.png">
+   <img src="RapidAPI_4.png" width=100>
     
     
 For more information visit the [How to use an API with Python (Beginner’s Guide)](https://rapidapi.com/blog/how-to-use-an-api-with-python/) on RapidAPI website!

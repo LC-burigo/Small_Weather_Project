@@ -20,7 +20,9 @@ Below are the procedures, which are arranged in 2 stages.
     
    <img src="RapidAPI_3.png">
    
-    4. Grab this code and put on your editor 
+    4. Grab the code and copy to your editor 
     
    <img src="RapidAPI_4.png">
-
+    
+    
+    For more information visit the [How to use an API with Python (Beginner’s Guide)](https://rapidapi.com/blog/how-to-use-an-api-with-python/) on RapidAPI website!

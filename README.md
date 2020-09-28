@@ -9,19 +9,19 @@ Below are the procedures, which are arranged in 2 stages.
 
    1. You need to register an account on the RapidAPI website to get an API key
 
-   <img src="RapidAPI.png"  width=700>
+   <img src="RapidAPI.png"  width=600>
 
    2. Go to API Marketplace on navbar and digit **Open Weather Map** on search text area
 
-   <img src="RapidAPI_2.png" width=700>
+   <img src="RapidAPI_2.png" width=600>
 
    3. Now that you have the Key API, choose the Historical Weather Data option
     
-   <img src="RapidAPI_3.png" width=700>
+   <img src="RapidAPI_3.png" width=600>
    
    4. Grab the code and copy to your editor 
     
-   <img src="RapidAPI_4.png" width=700>
+   <img src="RapidAPI_4.png" width=600>
     
     
 For more information visit the [How to use an API with Python (Beginner’s Guide)](https://rapidapi.com/blog/how-to-use-an-api-with-python/) on RapidAPI website!
@@ -38,7 +38,7 @@ Below, you can see all the functionalities in my program and its corresponding f
    * Function to get the average of a chosen weather feature (Average)
    * Function to get the maximum value of a chosen weather feature (Max)
    * Function to get the minimum value of a chosen weather feature (Min)
-   * Function to get graphic of a chosen weather feature (Graphics)
+   * Function to get graphic of a chosen weather feature (Graphics) \
 ```pip install matplotlib```
 
 ***3. Stage) Inputs to use the program*** \

@@ -28,7 +28,8 @@ For more information visit the [How to use an API with Python (Beginner’s Guid
 
 
 ***2. Stage) Build The program*** \
-Below, you can see all the functionalities in my program and its corresponding functions, with all the packagesthe you need to install 
+
+Below, you can see all the functionalities in my program and its corresponding functions, with all the packages that you need to install 
 
    * Function to grap informations that the API gives (Weather_City) \
 ```pip install requests```

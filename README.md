@@ -5,4 +5,4 @@
 
 Below are the procedures, which are arranged in 2 stages.
 
-*1\. Stage*
+***1\. Stage***

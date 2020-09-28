@@ -32,7 +32,7 @@ class City_weather:
             Hourly = Call['hourly']
             List_Datetime = []
             for i in range(len(Hourly)):
-                List_Datetime.append(datetime.datetime.fromtimestamp(Hourly[i]['dt']).strftime('%H:%M:%S'))
+                List_Datetime.append(datetime.datetime.fromtimestamp(Hourly[i]['dt']).strftime('%Y-%m-%d %H:%M:%S'))
             return List_Datetime
         else:
             return datetime.datetime.fromtimestamp(epoch).strftime('%Y-%m-%d %H:%M:%S')
@@ -64,7 +64,7 @@ class City_weather:
                 i += 1
                 n += 1
             return Dict_WindSpeed
-        elif feature.lower() == 'Pressure':
+        elif feature.lower() == 'pressure':
             while i < len(Hourly):
                 Dict_Pressure[self.Epoch_to_Datetime(Hourly[i]['dt'])] = Hourly[i]['pressure']
                 i += 1
@@ -177,10 +177,10 @@ class City_weather:
             while i < len(Hourly):
                 List_Humidity.append(Hourly[i]['humidity'])
                 i += 1
-            pyplot.plot(List_Datetime, List_Humidity, color='b', marker='o', linewidth=3, label='Humidity history in one day')
+            pyplot.plot(List_Datetime, List_Humidity, color='b', marker='o', linewidth=3, label='Time-line humidity in one day')
             pyplot.xticks(rotation=70)
             pyplot.xlabel('Datetime')
-            pyplot.ylabel('Humidity in porcent')
+            pyplot.ylabel('Humidity in %')
             Axis.set_ylim([0, 200])
             pyplot.title('Graphic of the humidity')
             pyplot.grid(True)
@@ -190,7 +190,7 @@ class City_weather:
             while i < len(Hourly):
                 List_WindSpeed.append(Hourly[i]['wind_speed'])
                 i += 1
-            pyplot.plot(List_Datetime, List_WindSpeed, color='y', marker='o', linewidth=3, label='Windspeed history in one day')
+            pyplot.plot(List_Datetime, List_WindSpeed, color='y', marker='o', linewidth=3, label='Time-line windspeed in one day')
             pyplot.xticks(rotation=70)
             pyplot.xlabel('Datetime')
             pyplot.ylabel('Windspeed in Km/h')
@@ -203,7 +203,7 @@ class City_weather:
             while i < len(Hourly):
                 List_Pressure.append(Hourly[i]['pressure'])
                 i += 1
-            pyplot.plot(List_Datetime, List_Pressure, color='k', marker='o', linewidth=3, label='Pressure history in one day')
+            pyplot.plot(List_Datetime, List_Pressure, color='k', marker='o', linewidth=3, label='Time-line pressure in one day')
             pyplot.xticks(rotation=70)
             pyplot.xlabel('Datetime')
             pyplot.ylabel('Pressure in hPa')
@@ -216,5 +216,7 @@ class City_weather:
             print('The feature have to be one of these: temperature, humidity, windspeed, pressure ')
 
 
-florianópolis = City_weather(-27, -48, 1600898984)
+florianópolis = City_weather(-27, -48, 1601310337)
 florianópolis.Graphics('temperature')
+
+

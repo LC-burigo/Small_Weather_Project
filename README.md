@@ -19,3 +19,8 @@ Below are the procedures, which are arranged in 2 stages.
     3. Now that you have the Key API, choose the Historical Weather Data option
     
    <img src="RapidAPI_3.png">
+   
+    4. Grab this code and put on your editor 
+    
+   <img src="RapidAPI_4.png">
+

@@ -11,9 +11,11 @@ Below are the procedures, which are arranged in 2 stages.
 
   <img src="RapidAPI.png">
 
-Go to API Marketplace on navbar and digit **Open Weather Map** on search text area -->  
+    2. Go to API Marketplace on navbar and digit **Open Weather Map** on search text area
 
   <img src="RapidAPI_2.png">
 
 
-
+    3. Now that you have the Key API, choose the Historical Weather Data option
+    
+   <img src="RapidAPI_3.png">

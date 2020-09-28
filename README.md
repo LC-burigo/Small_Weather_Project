@@ -7,9 +7,11 @@ Below are the procedures, which are arranged in 2 stages.
 
 ***1\. Stage) register an account on the RapidAPI website***
 
-You need to register an account on the RapidAPI website to get an API key
+    1. You need to register an account on the RapidAPI website to get an API key
 
-<img src="RapidAPI.png">
+    <img src="RapidAPI.png">
+
+Go to API Marketplace on navbar and digit **Open Weather Map** on search text area -->  
 
 
 

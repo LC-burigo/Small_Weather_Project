@@ -46,25 +46,25 @@ class City_weather:
         Dict_Pressure = {}
         i = 0
         n = 0
-        if feature.lower() == 'temperature':
+        if feature.lower().strip() == 'temperature':
             while i < len(Hourly):
                 Dict_Temperature[self.Epoch_to_Datetime(Hourly[i]['dt'])] = Hourly[i]['temp']
                 i += 1
                 n += 1
             return Dict_Temperature
-        elif feature.lower() == 'humidity':
+        elif feature.lower().strip() == 'humidity':
             while i < len(Hourly):
                 Dict_Humidity[self.Epoch_to_Datetime(Hourly[i]['dt'])] = Hourly[i]['humidity']
                 i += 1
                 n += 1
             return Dict_Humidity
-        elif feature.lower() == 'windspeed':
+        elif feature.lower().strip() == 'windspeed':
             while i < len(Hourly):
                 Dict_WindSpeed[self.Epoch_to_Datetime(Hourly[i]['dt'])] = Hourly[i]['wind_speed']
                 i += 1
                 n += 1
             return Dict_WindSpeed
-        elif feature.lower() == 'pressure':
+        elif feature.lower().strip() == 'pressure':
             while i < len(Hourly):
                 Dict_Pressure[self.Epoch_to_Datetime(Hourly[i]['dt'])] = Hourly[i]['pressure']
                 i += 1
@@ -81,28 +81,28 @@ class City_weather:
         Hour_WindSpeed = 0
         Hour_Pressure = 0
         i = 0
-        if feature.lower() == 'temperature':
+        if feature.lower().strip() == 'temperature':
             while i < len(Hourly):
                 Hour_Temperature = Hour_Temperature + Hourly[i]['temp']
                 i += 1
             print('The count of temperature measurements was {}'.format(i))
             print('the average temperature in the last {} hours is: {}'.format(i, Hour_Temperature / 24))
             return Hour_Temperature
-        elif feature.lower() == 'humidity':
+        elif feature.lower().strip() == 'humidity':
             while i < len(Hourly):
                 Hour_Humidity = Hour_Humidity + Hourly[i]['humidity']
                 i += 1
             print('The count of humidity measurements was {}'.format(i))
             print('the average humidity in the last {} hours is: {}'.format(i, Hour_Humidity / 24))
             return Hour_Humidity
-        elif feature.lower() == 'windspeed':
+        elif feature.lower().strip() == 'windspeed':
             while i < len(Hourly):
                 Hour_WindSpeed = Hour_WindSpeed + Hourly[i]['wind_speed']
                 i += 1
             print('The count of windspeed measurements was {}'.format(i))
             print('the average windspeed in the last {} hours is: {}'.format(i, Hour_WindSpeed / 24))
             return Hour_WindSpeed
-        elif feature.lower() == 'pressure':
+        elif feature.lower().strip() == 'pressure':
             while i < len(Hourly):
                 Hour_Pressure = Hour_Pressure + Hourly[i]['pressure']
                 i += 1
@@ -113,36 +113,36 @@ class City_weather:
             print('The feature have to be one of these: temperature, humidity, windspeed, pressure ')
 
     def Max(self, feature):
-        if feature.lower() == 'temperature':
+        if feature.lower().strip() == 'temperature':
             Call = self.Hourly_features('temperature')
             print('The maximum Temperature was measured at {} with the value of {}'.format(max(Call, key=Call.get), Call[max(Call, key=Call.get)]))
-        elif feature.lower() == 'humidity':
+        elif feature.lower().strip() == 'humidity':
             Call = self.Hourly_features('humidity')
             print('The maximum humidity was measured at {} with the value of {}'.format(max(Call, key=Call.get), Call[max(Call, key=Call.get)]))
-        elif feature.lower() == 'windspeed':
+        elif feature.lower().strip() == 'windspeed':
             Call = self.Hourly_features('windspeed')
             print('The maximum windspeed was measured at {} with the value of {}'.format(max(Call, key=Call.get), Call[max(Call, key=Call.get)]))
-        elif feature.lower() == 'pressure':
+        elif feature.lower().strip() == 'pressure':
             Call = self.Hourly_features('pressure')
             print('The maximum pressure was measured at {} with the value of {}'.format(max(Call, key=Call.get), Call[max(Call, key=Call.get)]))
         else:
             print('The feature have to be one of these: temperature, humidity, windspeed, pressure ')
 
     def Min(self, feature):
-        if feature.lower() == 'temperature':
+        if feature.lower().strip() == 'temperature':
             Call = self.Hourly_features('temperature')
             print(
                 'The minimum Temperature was measured at {} with the value of {}'.format(min(Call, key=Call.get),
                                                                                          Call[min(Call, key=Call.get)]))
-        elif feature.lower() == 'humidity':
+        elif feature.lower().strip() == 'humidity':
             Call = self.Hourly_features('humidity')
             print('The minimum humidity was measured at {} with the value of {}'.format(min(Call, key=Call.get),
                                                                                          Call[min(Call, key=Call.get)]))
-        elif feature.lower() == 'windspeed':
+        elif feature.lower().strip() == 'windspeed':
             Call = self.Hourly_features('windspeed')
             print('The minimum windspeed was measured at {} with the value of {}'.format(min(Call, key=Call.get),
                                                                                          Call[min(Call, key=Call.get)]))
-        elif feature.lower() == 'pressure':
+        elif feature.lower().strip() == 'pressure':
             Call = self.Hourly_features('pressure')
             print('The minimum pressure was measured at {} with the value of {}'.format(min(Call, key=Call.get),
                                                                                          Call[min(Call, key=Call.get)]))
@@ -160,7 +160,7 @@ class City_weather:
         List_Pressure = []
         List_Datetime = self.Epoch_to_Datetime('list')
         i = 0
-        if feature.lower() == 'temperature':
+        if feature.lower().strip() == 'temperature':
             while i < len(Hourly):
                 List_Temperature.append(Hourly[i]['temp'])
                 i += 1
@@ -173,7 +173,7 @@ class City_weather:
             pyplot.grid(True)
             pyplot.legend()
             pyplot.show()
-        elif feature.lower() == 'humidity':
+        elif feature.lower().strip() == 'humidity':
             while i < len(Hourly):
                 List_Humidity.append(Hourly[i]['humidity'])
                 i += 1
@@ -186,7 +186,7 @@ class City_weather:
             pyplot.grid(True)
             pyplot.legend()
             pyplot.show()
-        elif feature.lower() == 'windspeed':
+        elif feature.lower().strip() == 'windspeed':
             while i < len(Hourly):
                 List_WindSpeed.append(Hourly[i]['wind_speed'])
                 i += 1
@@ -199,7 +199,7 @@ class City_weather:
             pyplot.grid(True)
             pyplot.legend()
             pyplot.show()
-        elif feature.lower() == 'pressure':
+        elif feature.lower().strip() == 'pressure':
             while i < len(Hourly):
                 List_Pressure.append(Hourly[i]['pressure'])
                 i += 1
@@ -216,7 +216,7 @@ class City_weather:
             print('The feature have to be one of these: temperature, humidity, windspeed, pressure ')
 
 
-florianópolis = City_weather(-27, -48, 1601310337)
-florianópolis.Graphics('temperature')
+florianópolis = City_weather(-27, -48, 1601089372)
+print(florianópolis.Hourly_features(' Temperature'))
 
 

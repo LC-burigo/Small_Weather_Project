@@ -27,7 +27,7 @@ Below are the procedures, which are arranged in 3 stages.
 For more information visit the [How to use an API with Python (Beginner’s Guide)](https://rapidapi.com/blog/how-to-use-an-api-with-python/) on RapidAPI website!
 
 
-***2. Stage) Build The program*** \
+***2. Stage) Build The program*** 
 
 Below, you can see all the functionalities in my program and its corresponding functions, with all the packages that you need to install 
 

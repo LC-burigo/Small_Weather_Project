@@ -33,6 +33,7 @@ Below, you can see all the functionalities in my program and its corresponding f
 
    * Function to grap informations that the API gives (Weather_City) \
 ```pip install requests```
+```pip install pprintpp```
    * Function to convert Timestamp to human date (Epoch_to_Datetime) \
 ```pip install DateTime```   
    * Function to place the data of a chosen weather feature in a list or dictionary (Hourly_features)

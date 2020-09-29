@@ -27,24 +27,25 @@ Below are the procedures, which are arranged in 3 stages.
 For more information visit the [How to use an API with Python (Beginner’s Guide)](https://rapidapi.com/blog/how-to-use-an-api-with-python/) on RapidAPI website!
 
 
-***2. Stage) Build The program*** 
+***2. Stage) Build the program*** 
 
 Below, you can see all the functionalities in my program and its corresponding functions, with all the packages that you need to install 
 
-   * Function to grap informations that the API gives (Weather_City) \
+   * to grap informations that the API gives (def Weather_City) \
 ```pip install requests``` \
 ```pip install pprintpp```
-   * Function to convert Timestamp to human date (Epoch_to_Datetime) \
+   * to convert Timestamp to human date (def Epoch_to_Datetime) \
 ```pip install DateTime```   
-   * Function to place the data of a chosen weather feature in a list or dictionary (Hourly_features)
-   * Function to get the average of a chosen weather feature (Average)
-   * Function to get the maximum value of a chosen weather feature (Max)
-   * Function to get the minimum value of a chosen weather feature (Min)
-   * Function to get graphic of a chosen weather feature (Graphics) \
+   * to place the data of a chosen weather feature in a list or dictionary (def Hourly_features)
+   * to get the average of a chosen weather feature (def Average)
+   * to get the maximum value of a chosen weather feature (def Max)
+   * to get the minimum value of a chosen weather feature (def Min)
+   * to get graphic of a chosen weather feature (def Graphics) \
 ```pip install matplotlib```
+<span style="color:red">you don´t need to do exatly how i did, you can do in your own way</span>
 
 ***3. Stage) Inputs to use the program*** 
-   * Choose a city
-   * Get the latidude of the chosen city
-   * Get the longitude of the chosen city
-   * Get the Dt (timestamp) of the chosen city
+   > Choose a city \
+   > Get the latidude of the chosen city \
+   > Get the longitude of the chosen city \
+   > Get the Dt (timestamp) of the chosen city 

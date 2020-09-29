@@ -32,18 +32,18 @@ Below are the procedures, which are arranged in 3 stages.
 Below, you can see all the functionalities in my program and its corresponding functions, with all the packages that you need to install 
 
    * to grap informations that the API gives (def Weather_City) \
-```pip install requests``` :arrow_right: [here](https://pypi.org/project/requests/)\
-```pip install pprintpp``` :arrow_right: [here](https://pypi.org/project/pprintpp/)
+```pip install requests``` :link: [here](https://pypi.org/project/requests/)\
+```pip install pprintpp``` :link: [here](https://pypi.org/project/pprintpp/)
 
    * to convert Timestamp to human date (def Epoch_to_Datetime) \
-```pip install DateTime``` :arrow_right: [here](https://pypi.org/project/DateTime/)
+```pip install DateTime``` :link: [here](https://pypi.org/project/DateTime/)
 
    * to place the data of a chosen weather feature in a list or dictionary (def Hourly_features)
    * to get the average of a chosen weather feature (def Average)
    * to get the maximum value of a chosen weather feature (def Max)
    * to get the minimum value of a chosen weather feature (def Min)
    * to get graphic of a chosen weather feature (def Graphics) \
-```pip install matplotlib```:arrow_right: [here](https://pypi.org/project/matplotlib/)
+```pip install matplotlib```:link: [here](https://pypi.org/project/matplotlib/)
 
 :exclamation: you don´t need to do exatly how i did, you can do in your own way
 

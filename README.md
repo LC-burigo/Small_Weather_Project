@@ -32,7 +32,7 @@ For more information visit the [How to use an API with Python (Beginner’s Guid
 Below, you can see all the functionalities in my program and its corresponding functions, with all the packages that you need to install 
 
    * Function to grap informations that the API gives (Weather_City) \
-```pip install requests```
+```pip install requests``` \
 ```pip install pprintpp```
    * Function to convert Timestamp to human date (Epoch_to_Datetime) \
 ```pip install DateTime```   

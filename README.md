@@ -42,7 +42,8 @@ Below, you can see all the functionalities in my program and its corresponding f
    * to get the minimum value of a chosen weather feature (def Min)
    * to get graphic of a chosen weather feature (def Graphics) \
 ```pip install matplotlib```
-<span style="color:red">you don´t need to do exatly how i did, you can do in your own way</span>
+
+:exclamation: you don´t need to do exatly how i did, you can do in your own way
 
 ***3. Stage) Inputs to use the program*** 
    > Choose a city \

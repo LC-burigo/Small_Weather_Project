@@ -1,4 +1,4 @@
-# Small_Wheater_Project :sunny: :umbrella: :cloud: :cyclone:
+# Small_Weather_Project :sunny: :umbrella: :cloud: :cyclone:
 ## This program makes it possible to consume a weather API, which allows you to collect data from a city and do some treatments, and in addition, you can also get graphs.
 
 #### Here you will find, a guide with all the procedures to make this little climate program. 

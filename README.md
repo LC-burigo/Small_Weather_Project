@@ -31,6 +31,9 @@ Below are the procedures, which are arranged in 3 stages.
 
 Below, you can see all the functionalities in my program and its corresponding functions, with all the packages that you need to install 
 
+   * to get the coordinates of your input address (def Get_Coordinates) \
+```pip install Geopy``` :link: [here](https://pypi.org/project/geopy/)
+
    * to grap informations that the API gives (def Weather_City) \
 ```pip install requests``` :link: [here](https://pypi.org/project/requests/)\
 ```pip install pprintpp``` :link: [here](https://pypi.org/project/pprintpp/)
@@ -49,6 +52,4 @@ Below, you can see all the functionalities in my program and its corresponding f
 
 ***3. Stage) Inputs to use the program*** 
    > Choose a city \
-   > Get the latidude of the chosen city \
-   > Get the longitude of the chosen city \
    > Get the Dt (timestamp) of the chosen city 

@@ -2,19 +2,31 @@ import requests
 from pprint import pprint
 from matplotlib import pyplot
 import datetime
+from geopy.geocoders import Nominatim
 
 
 class City_weather:
-    def __init__(self, latitude, longitude, timestamp):
-        self.lat = latitude
-        self.lon = longitude
+    def __init__(self, city, timestamp):
+        self.address = city
         self.dt = timestamp
 
+    def Get_coordinates(self):
+        Address = self.address
+        Geolocator = Nominatim(user_agent="Lucas")
+        Location = Geolocator.geocode(Address)
+        Coordinates = []
+        Latitude = Location.latitude
+        Longitude = Location.longitude
+        Coordinates.append(Latitude)
+        Coordinates.append(Longitude)
+        return Coordinates
+
     def Weather_City(self):
+        Call = self.Get_coordinates()
         dict_weather = {}
         url = "https://community-open-weather-map.p.rapidapi.com/onecall/timemachine"
 
-        querystring = {"lat": self.lat, "lon": self.lon, "dt": self.dt}
+        querystring = {"lat": Call[0], "lon": Call[1], "dt": self.dt}
 
         headers = {
             'x-rapidapi-host': "community-open-weather-map.p.rapidapi.com",
@@ -233,7 +245,7 @@ class City_weather:
             print('The feature have to be one of these: temperature, humidity, windspeed, pressure ')
 
 
-florianópolis = City_weather(-27.5969, -48.5495, 1601089372)
-pprint(florianópolis.Weather_City())
+florianópolis = City_weather('Florianópolis', 1601089372)
+pprint(florianópolis.Hourly_features('temperature'))
 
 

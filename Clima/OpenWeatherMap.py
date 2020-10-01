@@ -37,6 +37,23 @@ class City_weather:
         else:
             return datetime.datetime.fromtimestamp(epoch).strftime('%Y-%m-%d %H:%M:%S')
 
+    def Current_features(self, feature):
+        Call = self.Weather_City()
+        Current = Call['current']
+        if feature.lower().strip() == 'temperature':
+            pprint(Current['temp'])
+            return Current['temp']
+        elif feature.lower().strip() == 'humidity':
+            pprint(Current['humidity'])
+            return Current['humidity']
+        if feature.lower().strip() == 'windspeed':
+            pprint(Current['wind_speed'])
+            return Current['wind_speed']
+        if feature.lower().strip() == 'pressure':
+            pprint(Current['pressure'])
+            return Current['pressure']
+
+
     def Hourly_features(self, feature):
         Call = self.Weather_City()
         Hourly = Call['hourly']
@@ -216,7 +233,7 @@ class City_weather:
             print('The feature have to be one of these: temperature, humidity, windspeed, pressure ')
 
 
-florianópolis = City_weather(-27, -48, 1601089372)
-print(florianópolis.Hourly_features(' Temperature'))
+florianópolis = City_weather(-27.5969, -48.5495, 1601089372)
+pprint(florianópolis.Weather_City())
 
 

@@ -32,7 +32,7 @@ Below are the procedures, which are arranged in 3 stages.
 Below, you can see all the functionalities in my program and its corresponding functions, with all the packages that you need to install 
 
    * to get the coordinates of your input address (def Get_Coordinates) \
-```pip install Geopy``` :link: [here](https://pypi.org/project/geopy/)\
+```pip install Geopy``` :link: [here](https://pypi.org/project/geopy/)
 
    * to grap informations that the API gives (def Weather_City) \
 ```pip install requests``` :link: [here](https://pypi.org/project/requests/)\

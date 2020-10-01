@@ -52,6 +52,4 @@ Below, you can see all the functionalities in my program and its corresponding f
 
 ***3. Stage) Inputs to use the program*** 
    > Choose a city \
-   > Get the latidude of the chosen city \
-   > Get the longitude of the chosen city \
    > Get the Dt (timestamp) of the chosen city 

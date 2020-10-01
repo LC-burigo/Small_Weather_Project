@@ -65,7 +65,6 @@ class City_weather:
             pprint(Current['pressure'])
             return Current['pressure']
 
-
     def Hourly_features(self, feature):
         Call = self.Weather_City()
         Hourly = Call['hourly']

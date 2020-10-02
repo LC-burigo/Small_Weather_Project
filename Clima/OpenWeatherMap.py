@@ -58,12 +58,15 @@ class City_weather:
         elif feature.lower().strip() == 'humidity':
             pprint(Current['humidity'])
             return Current['humidity']
-        if feature.lower().strip() == 'windspeed':
+        elif feature.lower().strip() == 'windspeed':
             pprint(Current['wind_speed'])
             return Current['wind_speed']
-        if feature.lower().strip() == 'pressure':
+        elif feature.lower().strip() == 'pressure':
             pprint(Current['pressure'])
             return Current['pressure']
+        elif feature.lower().strip() == 'icon':
+            pprint(Current['icon'])
+            return Current['icon']
 
     def Hourly_features(self, feature):
         Call = self.Weather_City()
@@ -244,7 +247,7 @@ class City_weather:
             print('The feature have to be one of these: temperature, humidity, windspeed, pressure ')
 
 
-florianópolis = City_weather('Florianópolis', 1601089372)
-pprint(florianópolis.Hourly_features('temperature'))
+florianópolis = City_weather('Florianópolis', 1601653089)
+florianópolis.Current_features('temperature')
 
 

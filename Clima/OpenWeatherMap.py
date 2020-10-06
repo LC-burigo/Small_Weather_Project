@@ -36,6 +36,7 @@ class City_weather:
         response = requests.request("GET", url, headers=headers, params=querystring)
 
         data = response.json()
+        print(response.status_code)
         return data
 
     def Epoch_to_Datetime(self, epoch):
@@ -247,7 +248,6 @@ class City_weather:
             print('The feature have to be one of these: temperature, humidity, windspeed, pressure ')
 
 
-florianópolis = City_weather('Florianópolis', 1601653089)
-florianópolis.Current_features('temperature')
-
+florianópolis = City_weather('vvrvrvv', 1601653089)
+florianópolis.Get_coordinates()
 
